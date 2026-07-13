@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <meta name="description" content="Personal portfolio" />
+
+  <!-- Favicon is set dynamically from Admin Panel settings via script.js, this is the fallback -->
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/images/favicon-placeholder.svg" />
+
+  <!-- Fonts: Fraunces (display serif) for personality, Inter (body) for readability, JetBrains Mono (utility) for labels -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ PAGE LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader__mark">A</span>
+  </div>
+
+  <!-- ============ HOME / HERO SECTION ============ -->
+  <header class="hero" id="home">
+
+    <!-- Background video, source is injected by script.js from saved admin settings -->
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline poster="assets/images/profile-placeholder.svg">
+      <source id="heroVideoSource" src="" type="video/mp4" />
+    </video>
+
+    <!-- Dark overlay for legibility -->
+    <div class="hero__overlay"></div>
+
+    <!-- Fine gold vignette / grain for a premium finish -->
+    <div class="hero__vignette"></div>
+
+    <nav class="hero__nav">
+      <a class="brand" href="#home">
+        <img id="siteLogo" class="brand__mark" src="assets/images/favicon-placeholder.svg" alt="Logo" />
+        <span class="brand__text" id="siteLogoText">Portfolio</span>
+      </a>
+    </nav>
+
+    <div class="hero__content">
+      <p class="eyebrow">— Welcome, my name is</p>
+      <h1 class="hero__name" id="heroName">Your Name</h1>
+      <p class="hero__tagline" id="typingText"><span class="typing-cursor">|</span></p>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span class="scroll-cue__line"></span>
+        <span>Scroll</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ ABOUT SECTION ============ -->
+  <main>
+    <section class="about" id="about">
+      <div class="about__frame reveal">
+        <div class="about__portrait">
+          <img id="profileImg" src="assets/images/profile-placeholder.svg" alt="Profile photo" />
+          <span class="about__portrait-ring"></span>
+        </div>
+
+        <div class="about__copy">
+          <p class="eyebrow">— About Me</p>
+          <h2 class="about__heading" id="aboutName">Your Name</h2>
+          <p class="about__text" id="aboutText">
+            Write a short introduction about yourself in the Admin Panel. Tell visitors
+            who you are, what you do, and what you're passionate about.
+          </p>
+
+          <!-- ============ SOCIAL MEDIA DOCK ============ -->
+          <ul class="social-dock" id="socialDock" aria-label="Social media links">
+            <li>
+              <a class="social-dock__item" data-social="facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <img src="assets/icons/facebook.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a class="social-dock__item" data-social="instagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <img src="assets/icons/instagram.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a class="social-dock__item" data-social="tiktok" href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <img src="assets/icons/tiktok.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a class="social-dock__item" data-social="youtube" href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <img src="assets/icons/youtube.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a class="social-dock__item" data-social="github" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <img src="assets/icons/github.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a class="social-dock__item" data-social="discord" href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <img src="assets/icons/discord.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__rule"></div>
+    <p>© <span id="year"></span> <span id="footerName">Your Name</span> — Crafted with HTML, CSS &amp; JS</p>
+    <a href="admin.html" class="admin-link">Admin</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

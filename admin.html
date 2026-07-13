@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — Portfolio</title>
+  <link id="favicon" rel="icon" type="image/svg+xml" href="assets/images/favicon-placeholder.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <div class="admin">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="admin__sidebar">
+      <a href="index.html" class="admin__brand">
+        <span class="admin__brand-mark">A</span>
+        <span>Admin Panel</span>
+      </a>
+      <nav class="admin__nav">
+        <a href="#video">Background Video</a>
+        <a href="#identity">Identity</a>
+        <a href="#about">About Me</a>
+        <a href="#social">Social Links</a>
+        <a href="#branding">Logo &amp; Favicon</a>
+        <a href="#data">Backup &amp; Restore</a>
+      </nav>
+      <a href="index.html" class="admin__view-site">View live site →</a>
+    </aside>
+
+    <!-- ============ MAIN FORM ============ -->
+    <main class="admin__main">
+      <header class="admin__header">
+        <p class="eyebrow">— Portfolio Settings</p>
+        <h1>Edit your site</h1>
+        <p class="admin__subtitle">
+          Changes save to this browser instantly. Click <strong>Save changes</strong> in
+          each section, then open the live site to see them.
+        </p>
+        <div id="statusBanner" class="status-banner" role="status" aria-live="polite"></div>
+      </header>
+
+      <!-- ============ BACKGROUND VIDEO ============ -->
+      <section class="card" id="video">
+        <h2>Background Video</h2>
+        <p class="card__hint">Recommended: MP4, 15–30 seconds, looped, under ~15MB.</p>
+
+        <div class="field-tabs">
+          <label class="field">
+            <span>Path from <code>assets/videos/</code> folder (recommended)</span>
+            <input type="text" id="videoPath" placeholder="assets/videos/hero.mp4" />
+          </label>
+
+          <div class="or-divider"><span>or</span></div>
+
+          <label class="field">
+            <span>Upload a video file directly</span>
+            <input type="file" id="videoUpload" accept="video/mp4,video/webm" />
+            <small class="field__note">Large files may be slow to save in the browser. The folder method above is more reliable for big videos.</small>
+          </label>
+        </div>
+
+        <video id="videoPreview" class="preview-video" muted loop autoplay playsinline></video>
+        <button class="btn" data-save="video">Save changes</button>
+      </section>
+
+      <!-- ============ IDENTITY ============ -->
+      <section class="card" id="identity">
+        <h2>Identity</h2>
+
+        <label class="field">
+          <span>Your name</span>
+          <input type="text" id="nameInput" placeholder="Your Name" />
+        </label>
+
+        <label class="field">
+          <span>Hero tagline (typing animation text)</span>
+          <input type="text" id="taglineInput" placeholder="Designer. Developer. Creator." />
+        </label>
+
+        <label class="field">
+          <span>Profile picture</span>
+          <input type="file" id="profileUpload" accept="image/*" />
+        </label>
+
+        <img id="profilePreview" class="preview-image preview-image--round" alt="Profile preview" />
+
+        <button class="btn" data-save="identity">Save changes</button>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="card" id="about">
+        <h2>About Me</h2>
+        <label class="field">
+          <span>Introduction text</span>
+          <textarea id="aboutInput" rows="5" placeholder="Tell visitors who you are..."></textarea>
+        </label>
+        <button class="btn" data-save="about">Save changes</button>
+      </section>
+
+      <!-- ============ SOCIAL LINKS ============ -->
+      <section class="card" id="social">
+        <h2>Social Links</h2>
+        <p class="card__hint">Leave a field empty to hide that icon on the site.</p>
+
+        <label class="field">
+          <span>Facebook</span>
+          <input type="url" id="social-facebook" placeholder="https://facebook.com/yourname" />
+        </label>
+        <label class="field">
+          <span>Instagram</span>
+          <input type="url" id="social-instagram" placeholder="https://instagram.com/yourname" />
+        </label>
+        <label class="field">
+          <span>TikTok</span>
+          <input type="url" id="social-tiktok" placeholder="https://tiktok.com/@yourname" />
+        </label>
+        <label class="field">
+          <span>YouTube</span>
+          <input type="url" id="social-youtube" placeholder="https://youtube.com/@yourname" />
+        </label>
+        <label class="field">
+          <span>GitHub</span>
+          <input type="url" id="social-github" placeholder="https://github.com/yourname" />
+        </label>
+        <label class="field">
+          <span>Discord</span>
+          <input type="url" id="social-discord" placeholder="https://discord.gg/yourinvite" />
+        </label>
+
+        <button class="btn" data-save="social">Save changes</button>
+      </section>
+
+      <!-- ============ LOGO & FAVICON ============ -->
+      <section class="card" id="branding">
+        <h2>Logo &amp; Favicon</h2>
+
+        <label class="field">
+          <span>Site logo (shown top-left)</span>
+          <input type="text" id="logoTextInput" placeholder="Logo text, e.g. your initials" />
+        </label>
+
+        <label class="field">
+          <span>Logo image</span>
+          <input type="file" id="logoUpload" accept="image/*" />
+        </label>
+        <img id="logoPreview" class="preview-image preview-image--small" alt="Logo preview" />
+
+        <label class="field">
+          <span>Favicon (browser tab icon)</span>
+          <input type="file" id="faviconUpload" accept="image/*" />
+        </label>
+        <img id="faviconPreview" class="preview-image preview-image--small" alt="Favicon preview" />
+
+        <button class="btn" data-save="branding">Save changes</button>
+      </section>
+
+      <!-- ============ BACKUP / RESTORE ============ -->
+      <section class="card" id="data">
+        <h2>Backup &amp; Restore</h2>
+        <p class="card__hint">
+          Settings are stored in this browser only. Export a backup before clearing
+          browser data, or to move your settings to another computer.
+        </p>
+        <div class="btn-row">
+          <button class="btn btn--ghost" id="exportBtn">Export settings (.json)</button>
+          <label class="btn btn--ghost">
+            Import settings
+            <input type="file" id="importInput" accept="application/json" hidden />
+          </label>
+          <button class="btn btn--danger" id="resetBtn">Reset to defaults</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
